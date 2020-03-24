@@ -74,6 +74,10 @@ func readStats() ([]Data, error) {
 			return nil, err
 		}
 		for _, record := range records[1:] {
+			var c int
+			if record[i+4] == "" {
+				continue
+			}
 			c, err := strconv.Atoi(record[i+4])
 			if err != nil {
 				return nil, err
